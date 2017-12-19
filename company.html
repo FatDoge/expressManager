@@ -10,7 +10,7 @@
 <body>
         <div class="layui-layout layui-layout-admin" id="app">
                 <div class="layui-header">
-                  <div class="layui-logo">收件信息管理</div>
+                  <div class="layui-logo">快递公司查看</div>
                   <!-- 头部区域（可配合layui已有的水平导航） -->
                   <ul class="layui-nav layui-layout-left">
                       <li class="layui-nav-item"><a href="express.html">收件信息管理</a></li>
@@ -45,7 +45,7 @@
                     <form id="materialForm" class="form" method="post" action="" role="form" autocomplete="off">
                         <div class="form-group">
                             <div class="col-xs-4">
-                                <label class="labels" for="get_id">寄件订单ID</label>
+                                <label class="labels" for="get_id">收件订单ID</label>
                                 <input type="text" class="formInput" id="get_id" name="get_id">
                             </div>
                             <div class="col-xs-4">
@@ -87,21 +87,21 @@
                         </div>
                         <div class="form-group">
                                 <div class="col-xs-4">
-                                    <label class="labels" for="storage_id">支付方式：0-先付，1-到付</label>
+                                    <label class="labels" for="storage_id">存储的位置ID</label>
                                     <input type="tel" class="formInput" id="storage_id" name="storage_id">
                                 </div>
                                 <div class="col-xs-4">
-                                    <label class="labels" for="created_time">寄件时间</label>
+                                    <label class="labels" for="created_time">收件时间</label>
                                     <input type="tel" class="formInput" id="created_time" name="created_time">
                                 </div>
                                 <div class="col-xs-4">
-                                    <label class="labels" for="get_time">寄出时间</label>
+                                    <label class="labels" for="get_time">取走时间</label>
                                     <input type="tel" class="formInput" id="get_time" name="get_time">
                                 </div>
                         </div>
                         <div class="form-group">
                                 <div class="col-xs-5">
-                                    <label class="labels" for="get_status">取件状态:0-未取走;1-已取;</label>
+                                    <label class="labels" for="get_status">取件状态:0-未取走;1-已取;2-超时;3-寄回</label>
                                     <input type="tel" class="formInput" id="get_status" name="get_status">
                                 </div>
                                 <div class="col-xs-5">
@@ -126,9 +126,9 @@
             <p>收件地址:<b>123456</b></p>
             <p>收件人姓名:<b>123456</b></p>
             <p>收件人联系方式:<b>123456</b></p>
-            <p>支付方式:<b>123456</b></p>
-            <p>寄件时间:<b>123456</b></p>
-            <p>寄出时间:<b>123456</b></p>
+            <p>存储的位置ID:<b>123456</b></p>
+            <p>收件时间:<b>123456</b></p>
+            <p>取走时间:<b>123456</b></p>
             <p>取件状态:<b>123456</b></p>
             <p>快递公司:<b>123456</b></p>
         </div>
@@ -143,7 +143,7 @@
     <script src="./js/layer/layer.js"></script>
     <script src="./js/layui/layui.js"></script>
     <link rel="stylesheet" href="./js/layui/css/layui.css">
-    <script src="./js/main.js"></script>
+    <script src="./js/company.js"></script>
     <script>
 //注意：导航 依赖 element 模块，否则无法进行功能性操作
 layui.use('element', function(){
@@ -161,16 +161,11 @@ layui.use('table', function(){
                 ,data: data
                 ,page: true //开启分页
                 ,cols: [[ //表头
-                  {field: 'id', title: '快递单号', width:120, sort: true, fixed: 'left',align:'center'}
-                  ,{field: 'username', title: '收件人姓名', width:120,align:'center'}
-                  ,{field: 'sex', title: '收件人联系方式', width:140, sort: true,align:'center'}
-                  ,{field: 'city', title: '寄件地址', width:100,align:'center'}
-                  ,{field: 'sign', title: '货物类型', width: 100,align:'center'}
-                  ,{field: 'experience', title: '快递公司', width: 120, sort: true,align:'center'}
-                  ,{field: 'score', title: '收件时间', width: 120, sort: true,align:'center'}
-                  ,{field: 'classify', title: '快递状态', width: 120,align:'center'}
-                  ,{field: 'wealth', title: '取件时间', width: 120, sort: true,align:'center'}
-                  ,{fixed: 'right', width:78, align:'操作人', toolbar: '#barDemo'}
+                  {field: 'id', title: '快递公司ID', width:120, sort: true, fixed: 'left',align:'center'}
+                  ,{field: 'username', title: '快递公司名称', width:120,align:'center'}
+                  ,{field: 'sex', title: '联系电话', width:140, sort: true,align:'center'}
+                  ,{field: 'city', title: '取件时间', width:100,align:'center'}
+                  ,{fixed: 'right', width:78, align:'编辑', toolbar: '#barDemo'}
                 ]]
               });
 
