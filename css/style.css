@@ -73,3 +73,7 @@ a{
 a:hover{
     text-decoration: none;
 }
+#fixIt{
+    padding:0;
+    margin: 0;
+}
